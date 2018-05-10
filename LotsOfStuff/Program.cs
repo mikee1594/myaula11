@@ -22,6 +22,7 @@ namespace Aula11
         {
             // Instanciar um jogador com 70 quilos
             Player p = new Player(70.0f);
+            Bag otherBag; 
 
             //
             // Adicionar vários itens à mochila do jogador:
@@ -38,6 +39,14 @@ namespace Aula11
             p.BagOfStuff.AddThing(new Food(FoodType.Fruit, 0, 0.200f));
             // Mais uma arma
             p.BagOfStuff.AddThing(new Gun(2f, 0.09f, 25, 325f));
+
+            Console.WriteLine(p.BagOfStuff);
+            otherBag = new Bag(5);
+            otherBag.AddThing(new Food(FoodType.Meat, 1, 1f));
+            otherBag.AddThing(new Food(FoodType.Vegetables, 2, 1.5f));
+            p.BagOfStuff.AddThing(otherBag);      //duas mochilas (BagOfStuff(gun, food) + (otherBag (meat, vegetables) --> (BagOfStuff [otherBag])
+
+
 
             // Mostrar informação acerca dos conteúdos da mochila
             Console.WriteLine(p.BagOfStuff);
@@ -57,6 +66,7 @@ namespace Aula11
 
             // Mostrar de novo informação sobre a mochila
             Console.WriteLine(p.BagOfStuff);
+           
         }
     }
 }
